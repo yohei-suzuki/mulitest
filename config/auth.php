@@ -45,6 +45,23 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        
+        //ここから
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+        ],
+　　　　//ここまでを追加
     ],
 
     /*
@@ -69,6 +86,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        //ここから
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+　　　　//ここまでを追加
 
         // 'users' => [
         //     'driver' => 'database',
@@ -97,6 +120,13 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        //ここから
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+　　　　//ここまでを追加
     ],
 
 ];
